@@ -1,0 +1,103 @@
+﻿<div ng-controller="eventController">
+    <br />
+    <a class="btn btn-success" href="#CreateNewEvent">CreateNewEvent</a>
+    <div ng-init="getAllEventList()">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row" style="border-bottom: 1px solid #eee;margin-bottom: 10px;padding-bottom: 10px;" ng-repeat="event in eventCollection">
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Name</label>
+                                <div class="col-sm-8">
+                                    <p>
+                                        {{event.Name}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Description</label>
+                                <div class="col-sm-8">
+                                    <p>
+                                        {{event.Description}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Location</label>
+                                <div class="col-sm-8">
+                                    <p>
+                                        {{event.Location}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Posted By</label>
+                                <div class="col-sm-8">
+                                    <p>
+                                        {{event.UserName}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Event</label>
+                                <div class="col-sm-8">
+                                    <select ng-model="event.EventSelect" ng-click="eventChange(event.EventSelect,event.EventId)">
+                                        <option value="0">
+                                            Going
+                                        </option>
+                                        <option value="1">
+                                            MayBe
+                                        </option>
+                                        <option value="2">
+                                            NotGoing
+                                        </option>
+                                       
+                                        </select>
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div ng-repeat="googlemap in event.GoogleAc">
+                                    <div google-map ng-model="googlemap" class="demo-map">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Going</label>
+                                        <div class="col-sm-8">
+                                            <p>
+                                                {{event.GoingCount}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">MayBe</label>
+                                        <div class="col-sm-8">
+                                            <p>
+                                                {{event.MayBe}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        
+    </div>
+</div>
